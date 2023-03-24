@@ -1,0 +1,30 @@
+									At Start of work
+-Test Overriding of PowerUps (2nd from top still to do)
+
+still to do:
+-Add EVERY SINGLE TAG into StaticConstants and, re-write every line where you compare Tags
+-Fix a bug, where sometimes, the ball is stuck bouncing in parallel to upper border, unable to get down(maybe addind, a tiny bit of gravity to the ball will fix this) ?????????????
+-Add an option to use mouse as a means of controlling the platform
+-Think about a way of using events as a means of controlling power-ups
+-Add powerups:
+	-platform size up
+	-platform size down(does the size contribute to the maximum angle at which the ball can be bounced off of platform)
+	-Explodey balls(ball explodes on block impact)
+	-Multiply Balls
+	-Destroy all balls except the first one
+-Make alerts for every power-up on pick up(visual, only SFX, or both visual and SFX. Whichever ones you prefer)
+-Draw new assets for paltform, balls, and blocks(draw blocks only after all the types of blocks will be decided upon)
+-Figure out all the types of blocks you want in the game
+-Program every single type of block you want in the game
+
+
+Optional changes:
+-You can make it so BallSpeed and PlatformSpeed can be changed freely in the inspector(and maybe in the future by a user) and the coroutines will WITHOUT ANY BUGS, change these values by a multiplier(that can also be changed by a user). Changes of these values cannot stack. (my idea is to create 2 methods, for increasing and decreasing speed values, and calling them in specific places in code).
+
+Notes to self:
+-You're amazing<3
+-Read about events https://gamedevbeginner.com/events-and-delegates-in-unity/ @System Action vs System Func
+-Read about Explosions in Unity
+-Decide which book you want to buy from ChatGPT's recomendations
+
+????????? - it means that this thing might have been fixed
