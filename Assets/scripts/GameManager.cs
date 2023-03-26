@@ -9,42 +9,52 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
-    //game objects in game world
+    //game objects(and their components) in game world
     public List<GameObject> ballGameObjects = new List<GameObject>();
     public List<Ball> ballScripts = new List<Ball>();
     List<Rigidbody2D> ballsRigidbodies = new List<Rigidbody2D>();
     public GameObject platformGameObject;
+
     //Scripts of game objects
     [SerializeField] Platform platfromScript;
+
     //PreFabs
     [SerializeField] GameObject ballPreFab;
+
     //Game Start and end
     public Vector3 ballOffsetFromPlatform = new Vector3(0, 0.3f,0);
     public TextMeshProUGUI gameStartText;
+
     //State Machine
     StateMachine stateMachine;
     public PreGameState preGame;
     public GameOnState gameOn;
     public GameEndState gameEnd;
+
     //Power-Ups
         //[SerializeField] int BallMultiplier;
+    
     //lifes
     [SerializeField] Image lifesImage;
     int lifes = 3;
     [SerializeField] Sprite[] lifesSprites;
+    
     //game finished
     [SerializeField] TextMeshProUGUI gameFinishedText;
     [SerializeField] GameObject blocks;
+    
     //current power-ups statuses
     bool isBallSpedUp = false;
     bool isBallSlowedDown = false;
     bool isPlatformSpedUp = false;
     bool isPlatformSlowedDown = false;
+    
     //Coroutine objects
     Coroutine BallSpeedUpCoroutineObject;
     Coroutine BallSpeedDownCoroutineObject;
     Coroutine PlatformSpeedUpCoroutineObject;
     Coroutine PlatformSpeedDownCoroutineObject;
+    
     //Audio
     [SerializeField] AudioManager audioManager;
     private void Start()
@@ -85,7 +95,7 @@ public class GameManager : MonoBehaviour
         SpawnBallAtGameStart();
     }
     /// <summary>
-    /// Ends the game, meaning vanishes platform, blocks and balls. Does not subtract life, nor spawns a new ball hovering over the platform. Use this method ONLY when life goes to 0. If life does not drop to zero, and you want the game to continue, please use "GameManager.GameReset()". Do Not Forget that this method is called in both GameManager.LifeLost() and GameManager.LifeLostPowerUp().
+    /// Ends the game, meaning vanishes platform, blocks and balls. Does not subtract life, nor spawns a new ball hovering over the platform. Use this method ONLY when life goes to 0. If life does not drop to zero, and you want the game to continue, please use "GameManager.GameReset()". Do Not Forget that this method is called both in GameManager.LifeLost() and GameManager.LifeLostPowerUp().
     /// </summary>
     public void GameEnd()
     {
@@ -93,8 +103,6 @@ public class GameManager : MonoBehaviour
         lifesImage.gameObject.SetActive(false);
         platformGameObject.SetActive(false);
         gameFinishedText.gameObject.SetActive(true);
-        //gameStarted = false;
-        //theoretically this line SHOULD be here, but it ends up with IndexOutOfBounds Exception everyframe. I know why I just don't know how I want to reorganize it yet.
         foreach (GameObject item in ballGameObjects)
         {
             Destroy(item);

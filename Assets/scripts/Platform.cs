@@ -8,11 +8,13 @@ public class Platform : MonoBehaviour
     public float platformSpeed;
     float currentXPosition;
     [SerializeField] AudioManager audioManager;
+    [SerializeField] Camera cameraObject;
     void Update()
     {
-        UserInput();
+        UserInputKeyboard();
+        //UserInputMouse();
     }
-    void UserInput()
+    void UserInputKeyboard()
     {
         currentXPosition = this.gameObject.transform.position.x;
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -26,11 +28,16 @@ public class Platform : MonoBehaviour
             currentXPosition = Mathf.Clamp(currentXPosition, -5f, 2.3f);            
         }
         this.gameObject.transform.position = new Vector2(currentXPosition, this.gameObject.transform.position.y);
-
+    }
+    void UserInputMouse()
+    {
+        currentXPosition = cameraObject.ScreenToWorldPoint(Input.mousePosition).x;
+        currentXPosition = Mathf.Clamp(currentXPosition, -5f, 2.3f);
+        this.gameObject.transform.position = new Vector2(currentXPosition, this.gameObject.transform.position.y);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.tag ==StaticConstants.ballTag)
         {
             Rigidbody2D ballRb = collision.rigidbody;
             Vector2 collisionPoint = collision.GetContact(0).point;

@@ -1,0 +1,17 @@
+1. Power-Ups
+	-platform size up
+	-platform size down(does the size contribute to the maximum angle at which the ball can be bounced off of platform)
+	-Explodey balls(ball explodes on block impact)
+	-Multiply Balls
+	-Destroy all balls except the first one
+	-Platform instead of snapping to mouse, tries to follow it, so when the player makes a quick move left, the platform accelerates to it, not snapping
+
+2. Things that change when mouse is used as input device
+	-Platform Speed Up and Down PowerUps CANNOT spawn
+	-Platform following mouse powerUp Can spawn
+	
+3.How the player chooses the device
+	-I can use a menu, but what else would be in there?
+	-A simple scene with two buttons, Mouse and Keyboard. Based on the button clicked the game loads a scene. The mouse input scene is the same as keyboard but with slightly changed scripts and UI.
+
+4.Add visual effects for ball/platform when some powerUp is active, for example add wind like particles for sped up ball

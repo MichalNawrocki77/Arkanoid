@@ -10,7 +10,7 @@ public class PowerUpBlock : MonoBehaviour
     public int powerUpId;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.tag ==StaticConstants.ballTag)
         {
             DropRandomPowerUp();
             Destroy(this.gameObject);           
@@ -18,8 +18,7 @@ public class PowerUpBlock : MonoBehaviour
     }
     void DropRandomPowerUp()
     {
-        powerUpId = Random.Range(1,2);
-        //powerUpId = 5;
+        powerUpId = Random.Range(0,5);
         GameObject tempPrefab = Instantiate(PowerUpPrefabs[powerUpId], this.gameObject.transform.position, Quaternion.identity);
         tempPrefab.GetComponent<PowerUp>().powerUpType = (PowerUpType)powerUpId;
     }

@@ -9,7 +9,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] GameManager gameManagerScript;
     private void Start()
     {
-        gameManagerScript = GameObject.FindGameObjectsWithTag("GameManager")[0].GetComponent<GameManager>();
+        gameManagerScript = GameObject.FindGameObjectsWithTag(StaticConstants.gameManagerTag)[0].GetComponent<GameManager>();
         if (gameManagerScript == null)
         {
             Debug.Log("PowerUp's gameManagerScript field is NULL");
@@ -19,12 +19,12 @@ public class PowerUp : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == StaticConstants.platfromTag)
         {   
             gameManagerScript.ZebranoWzmocnienie(powerUpType);
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.tag == "BottomBorder")
+        else if (collision.gameObject.tag == StaticConstants.bottomBorderTag)
         {
             Destroy(this.gameObject);
         }
