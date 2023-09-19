@@ -1,0 +1,24 @@
+!!!URGENT STUFF!!!
+-I started adding tags to static constants, so if stuff is not working, that may be the reason
+-DRAW THE ASSETS!!!
+
+still to do:
+-Come up with a way for a user to choose before starting the game which means of controlling th platform he wants(mouse or keyboard).
+-Don't forget to change the Start game button from Spact to left mouse, when the platform is controlled with mouse, and think about other stuff that should also change when a player chooses mouse. 
+-Think about a way of using events as a means of controlling power-ups
+-Add powerups from Ideas.txt	
+-Make alerts for every power-up on pick up(visual, only SFX, or both visual and SFX. Whichever ones you prefer)
+-Draw new assets for paltform, balls, and blocks(draw blocks only after all the types of blocks will be decided upon)
+-Figure out all the types of blocks you want in the game
+-Program every single type of block you want in the game
+
+
+Optional changes:
+-You can make it so BallSpeed and PlatformSpeed can be changed freely in the inspector(and maybe in the future by a user) and the coroutines will WITHOUT ANY BUGS, change these values by a multiplier(that can also be changed by a user). Changes of these values cannot stack. (my idea is to create 2 methods, for increasing and decreasing speed values, and calling them in specific places in code).
+
+Stuff to learn from:
+-Read about events https://gamedevbeginner.com/events-and-delegates-in-unity/ @System Action vs System Func
+-Read about Explosions in Unity
+-Decide which book you want to buy from ChatGPT's recomendations
+
+????????? - it means that this thing might have been fixed
